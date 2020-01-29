@@ -10,7 +10,7 @@
             <span>{{ blog.created_at | date: "mediumDate" }}</span>
           </p>
           <p>{{ blog.short_desc }}</p>
-          <a routerLink="['/blog', blog.id]" class="btn btn-danger"
+          <a [routerLink]="['/blog', blog.id]" class="btn btn-danger"
             >Read more...</a
           >
         </div>
