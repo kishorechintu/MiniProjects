@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-blue">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" routerLink="/" (click)="setPageTitle('Blogger')">
       <img src="assets/images/logo.png" alt="Angular Project" />
     </a>
     <button
@@ -16,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item active">
           <a
             routerLink="/"
             routerLinkActive="active"
@@ -48,7 +48,7 @@
             routerLink="/contact"
             routerLinkActive="active"
             class="nav-link"
-            (click)="setPageTitle('Contact Us')"
+            (click)="setPageTitle('Contact')"
             >Contact</a
           >
         </li>
@@ -56,6 +56,17 @@
           <a routerLink="/blog" routerLinkActive="active" class="nav-link"
             >Blog</a
           >
+        </li>
+      </ul>
+      <ul class="navbar-nav  ml-auto">
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a routerLink="/admin" class="nav-link">Admin Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a routerLink="/login" class="nav-link">Logout</a>
         </li>
       </ul>
     </div>

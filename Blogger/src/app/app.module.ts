@@ -1,6 +1,8 @@
 import { BrowserModule, Title } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import { AdminModule } from "./admin/admin.module";
+import { AuthModule } from "./auth/auth.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -10,6 +12,7 @@ import { BannerComponent } from "./banner/banner.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { BlogpostModule } from "./blogpost/blogpost.module";
 import { CmspageModule } from "./cmspage/cmspage.module";
+import { httpInterceptorProviders } from "./http-interceptors";
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { CmspageModule } from "./cmspage/cmspage.module";
     HttpClientModule,
     BlogpostModule,
     CmspageModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule,
+    AuthModule
   ],
-  providers: [Title],
+  providers: [Title, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
